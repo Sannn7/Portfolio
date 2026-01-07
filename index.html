@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sanika Killekar | ML + GenAI | RAG Systems" />
+  <title>Sanika Killekar | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Soft background -->
+  <div class="bg">
+    <div class="bg-grid"></div>
+    <div class="bg-blob blob1"></div>
+    <div class="bg-blob blob2"></div>
+  </div>
+
+  <div class="container">
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="logo" id="logoBtn">SK</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#timeline">Story</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <h1 class="hero-title">Sanika Killekar</h1>
+      <p class="hero-subtitle">Machine Learning | GenAI | RAG Systems</p>
+      <p class="hero-tagline">
+        I like building practical AI systems that are reliable, measurable, and useful to real users.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge">🎓 MS Data Science @ Northeastern</span>
+        <span class="badge">📍 Boston, MA</span>
+        <span class="badge">🧩 RAG + Evaluation</span>
+        <span class="badge">☁️ Deployment + MLOps</span>
+      </div>
+
+      <div class="cta-group">
+        <a class="btn btn-primary" href="assets/certificates/SANIKA_KILLEKAR_RESUME.pdf" download>Download Resume</a>
+        <a class="btn btn-secondary" href="#projects">View Projects</a>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="section">
+      <h2 class="section-title">My Story</h2>
+      <p class="section-subtitle">
+        A quick walk through the key roles, projects, and milestones that shaped my journey so far.
+      </p>
+
+      <div class="timeline-wrap">
+        <div class="timeline-track" id="timelineTrack"></div>
+      </div>
+
+      <p class="timeline-hint">Tip: trackpad swipe, or Shift + mouse wheel to scroll horizontally.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2 class="section-title">About</h2>
+
+      <div class="about-card">
+        <p class="about-text">
+          <!-- I’m drawn to problems where messy inputs become clean decisions: turning raw text, logs, and datasets into systems
+          that people can trust. I care about evaluation, failure modes, and building tooling that makes models behave
+          consistently in the real world. -->
+        </p>
+
+        <div class="quote">
+          <div class="quote-mark">“</div>
+          <div class="quote-body">
+            <!-- <p class="quote-text">If you can’t explain it simply, you don’t understand it well enough.</p>
+            <p class="quote-author">Albert Einstein</p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPEREINCE -->
+    <section id="experience" class="section js-animate">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">Hands-on roles where I shipped ML systems and research prototypes.</p>
+
+        <div class="exp-wrap">
+            <div class="exp-card">
+            <div class="exp-head">
+                <h3>InfinityPool Pvt Ltd</h3>
+                <div class="exp-meta">
+                <span class="exp-role">Machine Learning Co-op</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-time">May 2024 – May 2025</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-loc">Mumbai, India</span>
+                </div>
+            </div>
+            <ul class="exp-bullets">
+                <li>Built an agentic AI workflow in <b>LangGraph</b> to turn daily market data into grounded next-day summaries, processing <b>48K+</b> documents per day end to end.</li>
+                <li>Ran reliable ingestion with <b>Apache Airflow</b> and <b>Docker</b>, and streamed feeds through <b>Kafka</b> to keep data fresh and pipelines stable.</li>
+                <li>Shipped an internal analyst copilot that answered questions using documents plus <b>SQL-backed</b> data, improving day-to-day analysis speed for users.</li>
+                <li>Deployed services on <b>Kubernetes</b> and monitored health and latency with <b>Prometheus/Grafana</b> to catch issues early and keep uptime high.</li>
+                <li>Improved efficiency by optimizing model serving and request flow, reducing GPU utilization by <b>28%</b> while keeping outputs consistent for users.</li>
+                <li>Partnered with analysts and engineers to deliver a <b>FastAPI</b>-based service with a simple web UI/dashboard for stakeholders to use the system and track results.</li>
+            </ul>
+
+            </div>
+
+            <div class="exp-card">
+            <div class="exp-head">
+                <h3>Tata Institute of Fundamental Research (TIFR)</h3>
+                <div class="exp-meta">
+                <span class="exp-role">AI Research Intern</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-time">May 2023 – Apr 2024</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-loc">Mumbai, India</span>
+                </div>
+            </div>
+            <ul class="exp-bullets">
+                <li>Built a citation-first research copilot using <b>LangChain</b> and <b>FAISS</b> to help teams search and summarize evidence across <b>90K+</b> internal papers, reducing literature review time by <b>35%</b>.</li>
+                <li>Improved response quality and consistency by fine-tuning models with <b>LoRA/QLoRA</b> and validating changes with repeatable evaluation runs.</li>
+                <li>Designed automated <b>ETL</b> pipelines with <b>Azure Data Factory</b> and <b>PySpark</b> to ingest and clean mixed sources like PDFs, patents, and SQL databases.</li>
+                <li>Productionized the system with containerized deployments and release automation, including <b>CI/CD</b> with automated tests to keep releases reliable.</li>
+                <li>Collaborated with researchers and engineers to translate research needs into usable tools, and shared clear documentation and findings so the team could adopt improvements quickly.</li>
+            </ul>
+
+
+            </div>
+
+            <div class="exp-card">
+            <div class="exp-head">
+                <h3>Tata Consultancy Engineers (TCE)</h3>
+                <div class="exp-meta">
+                <span class="exp-role">Machine Learning Intern</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-time">Nov 2022 – May 2023</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-loc">Mumbai, India</span>
+                </div>
+            </div>
+            <ul class="exp-bullets">
+                <ul class="exp-bullets">
+                    <li>Built a computer-vision pipeline to detect and track people in video streams and convert footage into structured movement and density signals.</li>
+                    <li>Designed preprocessing and annotation workflows (frame sampling, cleaning labels, handling occlusions) to improve training data quality and make model behavior more consistent.</li>
+                    <li>Evaluated model quality with practical metrics like precision/recall and error breakdowns (false positives, misses in dense scenes), then iterated on the model to reduce those failures.</li>
+                    <li>Packaged the system for repeatable runs and demos using <b>Python/OpenCV</b> with a simple deployment setup (Docker), making it easy for others to test and share results.</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXPERTISE -->
+    <section id="expertise" class="section">
+      <h2 class="section-title">Core Expertise</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>LLMs + RAG Systems</h3>
+          <p>Retrieval, reranking, grounding, and reliability checks to keep outputs useful and evidence backed.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🧪</div>
+          <h3>Evaluation + Safety</h3>
+          <p>Faithfulness and robustness tests, adversarial prompts, red teaming style checks, and clear metrics.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>ML Engineering</h3>
+          <p>Clean pipelines, reproducible experiments, error analysis, and shipping models that hold up in practice.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <h3>Deployment + MLOps</h3>
+          <p>API serving, Docker, Kubernetes, monitoring, and performance tuning for real usage patterns.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Featured Projects</h2>
+      <div id="projectsContainer" class="projects-grid"></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div id="skillsContainer" class="skills-grid"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Get In Touch</h2>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h4>Email</h4>
+          <a href="mailto:killekar.s@northeastern.edu">killekar.s@northeastern.edu</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">💼</div>
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/sanikakillekar0311/" target="_blank" rel="noopener noreferrer">
+            linkedin.com/in/sanikakillekar0311
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">💻</div>
+          <h4>GitHub</h4>
+          <a href="https://github.com/Sannn7" target="_blank" rel="noopener noreferrer">
+            github.com/Sannn7
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h4>Phone</h4>
+          <a href="tel:+18572948020">(857) 294-8020</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Sanika Killekar</p>
+    </footer>
+  </div>
+
+  <script src="./data.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
