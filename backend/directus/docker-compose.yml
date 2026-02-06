@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:16
+    container_name: portfolio_db
+    environment:
+      POSTGRES_USER: directus_user
+      POSTGRES_PASSWORD: directus_pass
+      POSTGRES_DB: directus
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  directus:
+    image: directus/directus:latest
+    container_name: portfolio_directus
+    depends_on:
+      - db
+    ports:
+      - "8055:8055"
+    environment:
+      DB_CLIENT: "pg"
+      DB_HOST: "db"
+      DB_PORT: "5432"
+      DB_DATABASE: "directus"
+      DB_USER: "directus_user"
+      DB_PASSWORD: "directus_pass"
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "http://localhost:5500,http://127.0.0.1:5500,http://[::1]:5500"
+      CORS_CREDENTIALS: "true"
+
+      ADMIN_EMAIL: "admin@local.dev"
+      ADMIN_PASSWORD: "ChangeMe_12345"
+
+      KEY: "OnZuqYYhLU5gX5QHKrsHFM8Qi2InD3JPpfrsfd0oho4"
+      SECRET: "iR3Ms4cukaJmy3zSFJ7qwOzg-J4EMG2s9veKuohVeB0"
+      WEBSOCKETS_ENABLED: "true"
+    volumes:
+      - uploads:/directus/uploads
+      - extensions:/directus/extensions
+
+volumes:
+  pgdata:
+  uploads:
+  extensions:
