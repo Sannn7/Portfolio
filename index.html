@@ -30,6 +30,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#timeline">Story</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#expertise">Expertise</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -100,75 +101,10 @@
 
     <!-- WORK EXPEREINCE -->
     <section id="experience" class="section js-animate">
-        <h2 class="section-title">Work Experience</h2>
-        <p class="section-subtitle">Hands-on roles where I shipped ML systems and research prototypes.</p>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">Hands-on roles where I shipped ML systems and research prototypes.</p>
 
-        <div class="exp-wrap">
-            <div class="exp-card">
-            <div class="exp-head">
-                <h3>InfinityPool Pvt Ltd</h3>
-                <div class="exp-meta">
-                <span class="exp-role">Machine Learning Co-op</span>
-                <span class="exp-dot">•</span>
-                <span class="exp-time">May 2024 – May 2025</span>
-                <span class="exp-dot">•</span>
-                <span class="exp-loc">Mumbai, India</span>
-                </div>
-            </div>
-            <ul class="exp-bullets">
-                <li>Built an agentic AI workflow in <b>LangGraph</b> to turn daily market data into grounded next-day summaries, processing <b>48K+</b> documents per day end to end.</li>
-                <li>Ran reliable ingestion with <b>Apache Airflow</b> and <b>Docker</b>, and streamed feeds through <b>Kafka</b> to keep data fresh and pipelines stable.</li>
-                <li>Shipped an internal analyst copilot that answered questions using documents plus <b>SQL-backed</b> data, improving day-to-day analysis speed for users.</li>
-                <li>Deployed services on <b>Kubernetes</b> and monitored health and latency with <b>Prometheus/Grafana</b> to catch issues early and keep uptime high.</li>
-                <li>Improved efficiency by optimizing model serving and request flow, reducing GPU utilization by <b>28%</b> while keeping outputs consistent for users.</li>
-                <li>Partnered with analysts and engineers to deliver a <b>FastAPI</b>-based service with a simple web UI/dashboard for stakeholders to use the system and track results.</li>
-            </ul>
-
-            </div>
-
-            <div class="exp-card">
-            <div class="exp-head">
-                <h3>Tata Institute of Fundamental Research (TIFR)</h3>
-                <div class="exp-meta">
-                <span class="exp-role">AI Research Intern</span>
-                <span class="exp-dot">•</span>
-                <span class="exp-time">May 2023 – Apr 2024</span>
-                <span class="exp-dot">•</span>
-                <span class="exp-loc">Mumbai, India</span>
-                </div>
-            </div>
-            <ul class="exp-bullets">
-                <li>Built a citation-first research copilot using <b>LangChain</b> and <b>FAISS</b> to help teams search and summarize evidence across <b>90K+</b> internal papers, reducing literature review time by <b>35%</b>.</li>
-                <li>Improved response quality and consistency by fine-tuning models with <b>LoRA/QLoRA</b> and validating changes with repeatable evaluation runs.</li>
-                <li>Designed automated <b>ETL</b> pipelines with <b>Azure Data Factory</b> and <b>PySpark</b> to ingest and clean mixed sources like PDFs, patents, and SQL databases.</li>
-                <li>Productionized the system with containerized deployments and release automation, including <b>CI/CD</b> with automated tests to keep releases reliable.</li>
-                <li>Collaborated with researchers and engineers to translate research needs into usable tools, and shared clear documentation and findings so the team could adopt improvements quickly.</li>
-            </ul>
-
-
-            </div>
-
-            <div class="exp-card">
-            <div class="exp-head">
-                <h3>Tata Consultancy Engineers (TCE)</h3>
-                <div class="exp-meta">
-                <span class="exp-role">Machine Learning Intern</span>
-                <span class="exp-dot">•</span>
-                <span class="exp-time">Nov 2022 – May 2023</span>
-                <span class="exp-dot">•</span>
-                <span class="exp-loc">Mumbai, India</span>
-                </div>
-            </div>
-            <ul class="exp-bullets">
-                <ul class="exp-bullets">
-                    <li>Built a computer-vision pipeline to detect and track people in video streams and convert footage into structured movement and density signals.</li>
-                    <li>Designed preprocessing and annotation workflows (frame sampling, cleaning labels, handling occlusions) to improve training data quality and make model behavior more consistent.</li>
-                    <li>Evaluated model quality with practical metrics like precision/recall and error breakdowns (false positives, misses in dense scenes), then iterated on the model to reduce those failures.</li>
-                    <li>Packaged the system for repeatable runs and demos using <b>Python/OpenCV</b> with a simple deployment setup (Docker), making it easy for others to test and share results.</li>
-                </ul>
-
-            </div>
-        </div>
+      <div class="exp-wrap" id="experienceContainer"></div>
     </section>
 
 

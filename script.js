@@ -32,6 +32,130 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
+
+async function renderExperience() {
+  console.log("🔵 renderExperience() called");
+  
+  const container = document.getElementById("experienceContainer");
+  if (!container) {
+    console.log("❌ Container not found!");
+    return;
+  }
+  
+  console.log("✅ Container found:", container);
+
+  // Change this if Directus is hosted somewhere else later
+  const DIRECTUS_URL = "https://portfolio-directus-p7e4.onrender.com";
+
+  // Fetch only the fields you need
+  const url =
+    `${DIRECTUS_URL}/items/experience` +
+    `?filter[status][_eq]=published` +
+    `&fields=company,role,location,start_date,end_date,highlights_text,status` +
+    `&sort=-start_date`;
+
+  console.log("🔗 Fetching:", url);
+
+  try {
+    const res = await fetch(url);
+  
+    
+    if (!res.ok) throw new Error(`Directus fetch failed: ${res.status}`);
+    const payload = await res.json();
+    
+
+
+    const items = Array.isArray(payload.data) ? payload.data : [];
+  
+    container.innerHTML = items
+      .map((item) => {
+        const company = item.company || "";
+        const role = item.role || "";
+        const location = item.location || "";
+
+        // Dates from Directus are ISO, so format nicely (no time)
+        const start = formatMonthYear(item.start_date);
+        const end = formatMonthYear(item.end_date) || "Present";
+
+        // If highlights is Text and you paste bullets on new lines
+        const bullets = splitBullets(item.highlights_text);
+
+        return `
+          <div class="exp-card js-animate">
+            <div class="exp-head">
+              <h3>${escapeHtml(company)}</h3>
+              <div class="exp-meta">
+                <span class="exp-role">${escapeHtml(role)}</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-time">${escapeHtml(start)} – ${escapeHtml(end)}</span>
+                <span class="exp-dot">•</span>
+                <span class="exp-loc">${escapeHtml(location)}</span>
+              </div>
+            </div>
+
+            <ul class="exp-bullets">
+              ${bullets.map((b) => `<li>${escapeHtml(b)}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+      })
+      .join("");
+      
+
+  } catch (err) {
+    console.error("❌ Error:", err);
+    container.innerHTML =
+      `<div class="exp-card">Could not load experience from Directus.</div>`;
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  renderTimeline();
+  renderProjects();
+  renderSkills();
+  
+  await renderExperience();  // ← Add 'await' here
+  
+  initScrollAnimations();  // Now this runs AFTER experience cards are rendered
+  updateActiveNavLink();
+});
+
+
+// Helpers
+
+function formatMonthYear(value) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return "";
+
+  return d.toLocaleString(undefined, { month: "short", year: "numeric" });
+}
+
+function splitBullets(highlights) {
+  if (!highlights) return [];
+
+  // Split by new lines, remove empty lines
+  return String(highlights)
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+// Basic HTML escaping to avoid breaking your page if text has symbols
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+
+
 // ===== RENDER PROJECTS =====
 function renderProjects() {
   const container = document.getElementById("projectsContainer");
@@ -139,15 +263,3 @@ function updateActiveNavLink() {
 }
 
 window.addEventListener("scroll", updateActiveNavLink);
-
-// ===== INIT =====
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  renderTimeline();
-  renderProjects();
-  renderSkills();
-
-  initScrollAnimations();
-  updateActiveNavLink();
-});
